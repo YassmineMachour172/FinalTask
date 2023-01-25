@@ -134,14 +134,13 @@ const LogIn = () => {
 
         console.log("requesting");
 
-
-        const response = await fetch('/logIn', requestMsg);/* send the request to the server */
+        
+        const response = await fetch('https://final-task-client.vercel.app/#/logIn', requestMsg);/* send the request to the server */
         console.log(response)
         if (!response.ok) {/* if the response is not ok, alert the user */
             setMsgModal('Invalid Login Details');
             handleShow();
             localStorage.clear();/* Clear the local storage */
-
             return;
         }
         let responseData = await response.json(); /* retrieve the response data */
