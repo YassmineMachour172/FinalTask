@@ -136,7 +136,7 @@ const LogIn = () => {
 
 
         const response = await fetch('/logIn', requestMsg);/* send the request to the server */
-        
+        console.log(response)
         if (!response.ok) {/* if the response is not ok, alert the user */
             setMsgModal('Invalid Login Details');
             handleShow();
