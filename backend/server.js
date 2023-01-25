@@ -296,7 +296,7 @@ app.post('/reCaptchaValidation', async (req, res) => {
     const token = req.body.token;
     
     await axios.post(
-        `https://www.google.com/recaptcha/api/siteverify?secret=6LcJBykkAAAAAHe8yGv0pUBjff2L9DWfpgSiGoGh&response=${token}`
+        `https://www.google.com/recaptcha/api/siteverify?secret=6LcDPCkkAAAAALhchV1If76bdNO0zmh16QS-O7Z1&response=${token}`
     );
     console.log("after Post recap");
     if (res.status(200)) { // if the request is valid
