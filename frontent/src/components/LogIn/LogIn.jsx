@@ -196,7 +196,7 @@ const LogIn = () => {
 
                                                 sitekey="6LcJBykkAAAAAOxj6YIRBE3aSGS3GCj3gszHMEGN"
                                                 ref={captchaRef}
-                                                /*onChange={onChangeRecap}*/
+                                                onChange={onChangeRecap}
                                             /></center>
                                             <input type="submit" className="btn btn-primary btn-user btn-block" value={'Login'}></input>
                                             <hr/>
