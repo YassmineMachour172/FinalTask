@@ -105,7 +105,7 @@ const SignUp = () => {
 
         console.log("requesting");
 
-        const response = await fetch('/signUp', requestMsg) /* send the data to the server to register the user */
+        const response = await fetch('https://final-task-server.vercel.app/signUp', requestMsg) /* send the data to the server to register the user */
         console.log(response);
         if (!response.ok) {
             setMsgModal('Invalid Registration Details');/* if the response is not ok, alert the user */

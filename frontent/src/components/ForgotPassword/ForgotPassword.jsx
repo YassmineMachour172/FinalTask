@@ -63,7 +63,7 @@ const ForgotPassword = () => {
         console.log("requesting");
 
         /* send the request to the server */
-        const response = await fetch('/forgotPassword', requestMsg)
+        const response = await fetch('https://final-task-server.vercel.app/forgotPassword', requestMsg)
         console.log(response);
         if (!response.ok) { /* if the response is not ok, alert the user */
             setMsgModal('Invalid Details');/* if the response is not ok, alert the user */

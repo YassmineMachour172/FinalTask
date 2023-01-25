@@ -67,7 +67,7 @@ const EditCarService = () => {
 
         console.log("requesting");
 
-        const response = await fetch('/editCarService', requestMsg) /* send the request to the server */
+        const response = await fetch('https://final-task-server.vercel.app/editCarService', requestMsg) /* send the request to the server */
         console.log(response);
         if (!response.ok) { /* if the response is not ok, alert the user */
             setMsgModal('Invalid Car Service Details');

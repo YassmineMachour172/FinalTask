@@ -28,7 +28,7 @@ const Dashboard = () => {
         
         /* else get the cars data from the server */
         async function fetchData() {
-            const response = await fetch('/getCarsData'); /* send request to the server */
+            const response = await fetch('https://final-task-server.vercel.app/getCarsData'); /* send request to the server */
             const json = await response.json(); /* get the response from the server */
             setCarsTableData(json); /* save the cars data in the carsTableData state */
             console.log(json);
@@ -49,7 +49,7 @@ const Dashboard = () => {
         console.log('Delete button clicked for car with treatment number: ', row.original.treatmentNumber);
         
         /* send request to the server to delete the specific car service */
-        await fetch('/deleteCar', {
+        await fetch('https://final-task-server.vercel.app/deleteCar', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

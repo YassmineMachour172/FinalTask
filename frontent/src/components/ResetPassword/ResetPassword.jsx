@@ -59,7 +59,7 @@ const ResetPassword = () => {
         };
         console.log("requesting");
 
-        const response = await fetch('/resetPassword', requestMsg) /* send the data to the server */
+        const response = await fetch('https://final-task-server.vercel.app/resetPassword', requestMsg) /* send the data to the server */
         console.log(response);
         if (!response.ok) { /* if the response is not ok, alert the user */
             setMsgModal('Invalid Details.');
