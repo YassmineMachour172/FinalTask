@@ -283,44 +283,44 @@ app.post('/resetPassword', (req, res) => {
 })
 
 /* POST request to reCAPTCHA */
-app.post('/reCaptchaValidation', async (req, res) => {
-    console.log("POST reCAPTCHA")
+// app.post('/reCaptchaValidation', async (req, res) => {
+//     console.log("POST reCAPTCHA")
 
-    if (req.body.title !== "reCAPTCHA") { // check if the request is valid
-        res.status(400)
-        res.send("Bad Login Request.")
-        return
-    }
+//     if (req.body.title !== "reCAPTCHA") { // check if the request is valid
+//         res.status(400)
+//         res.send("Bad Login Request.")
+//         return
+//     }
 
-    // Destructuring response token from request body
-    const token = req.body.token;
+//     // Destructuring response token from request body
+//     const token = req.body.token;
     
-    await axios.post(
-        `https://www.google.com/recaptcha/api/siteverify?secret=6Le9migkAAAAADRLS4_Iyw4lBCtaWTYhXsYQJo84&response=${token}`
-    );
-    console.log("after Post recap");
-    if (res.status(200)) { // if the request is valid
-        console.log('reCAPTCHA verification succeeded');
-        const reCAPTCHAMsg = { // define the response message
-        method: 'GET',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(
-            {
-                title: 'reCAPTCHA',
-                signUpResult: 'OK',
-            })
-        }
-        res.type('application/json')
-        res.send(reCAPTCHAMsg) // send the response
-        return
-    }else{ // if the request is invalid
-        console.log('reCAPTCHA verification failed');
-        res.status(400)
-        // res.send("ReCAPTCHA verification failed", token)
-        res.send(token)
-        return
-    }
-})
+//     await axios.post(
+//         `https://www.google.com/recaptcha/api/siteverify?secret=6Le9migkAAAAADRLS4_Iyw4lBCtaWTYhXsYQJo84&response=${token}`
+//     );
+//     console.log("after Post recap");
+//     if (res.status(200)) { // if the request is valid
+//         console.log('reCAPTCHA verification succeeded');
+//         const reCAPTCHAMsg = { // define the response message
+//         method: 'GET',
+//         headers: {'Content-Type': 'application/json'},
+//         body: JSON.stringify(
+//             {
+//                 title: 'reCAPTCHA',
+//                 signUpResult: 'OK',
+//             })
+//         }
+//         res.type('application/json')
+//         res.send(reCAPTCHAMsg) // send the response
+//         return
+//     }else{ // if the request is invalid
+//         console.log('reCAPTCHA verification failed');
+//         res.status(400)
+//         // res.send("ReCAPTCHA verification failed", token)
+//         res.send(token)
+//         return
+//     }
+// })
 
 /* GET request to cars data */
 app.get('/getCarsData', (req, res) => {
