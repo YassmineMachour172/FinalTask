@@ -20,7 +20,7 @@ const LogIn = () => {
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
     const [reCAPTCHAValue, setReCAPTCHAValue] = useState(0);
     const captchaRef = useRef(null); /* define ref for the captcha */
-
+    const [status, setStatus] = useState("");
 
     useEffect(() => {
         /* check for a stored session in local storage */

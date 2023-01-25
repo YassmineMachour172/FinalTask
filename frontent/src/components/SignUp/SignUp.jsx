@@ -20,7 +20,7 @@ const SignUp = () => {
     const [msgModal, setMsgModal] = useState('');/*define state for the message modal box */
     const [reCAPTCHAValue, setReCAPTCHAValue] = useState(0);
     const captchaRef = useRef(null); /* define ref for the reCAPTCHA */
-    
+    const [status, setStatus] = useState("");
 
     /* function that close the modal and reset the message modal*/
     const handleClose = () =>{
