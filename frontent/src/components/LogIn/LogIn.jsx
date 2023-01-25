@@ -82,13 +82,13 @@ const LogIn = () => {
             navigate('/dashboard'); 
         }
 
-        if(reCAPTCHAValue===0){
-            setStatus("ReCAPTCHA verification failed");
-            setMsgModal('ReCAPTCHA verification failed')
-           handleShow()
+        // if(reCAPTCHAValue===0){
+        //     setStatus("ReCAPTCHA verification failed");
+        //     setMsgModal('ReCAPTCHA verification failed')
+        //    handleShow()
 
-            return;
-        }
+        //     return;
+        // }
         
         /* if the session is not stored */
 
