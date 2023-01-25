@@ -57,37 +57,37 @@ const SignUp = () => {
     const submitForm = async (data, e) => {
         e.preventDefault();
 
-        if(reCAPTCHAValue===0){
-            setStatus("ReCAPTCHA verification failed");
-            setMsgModal('ReCAPTCHA verification failed')
-           handleShow()
+        // if(reCAPTCHAValue===0){
+        //     setStatus("ReCAPTCHA verification failed");
+        //     setMsgModal('ReCAPTCHA verification failed')
+        //    handleShow()
 
-            return;
-        }
+        //     return;
+        // }
         /* get the token from the reCAPTCHA */
-        // const token = captchaRef.current.getValue();
-        // captchaRef.current.reset();
+        const token = captchaRef.current.getValue();
+        captchaRef.current.reset();
 
         /* define the recaptch request message */
-        // const reCAPTCHMsg = {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(
-        //         {
-        //             title:     'reCAPTCHA',
-        //             token:     token
-        //         })
-        // };
+        const reCAPTCHMsg = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(
+                {
+                    title:     'reCAPTCHA',
+                    token:     token
+                })
+        };
         
         console.log("requesting");
 
-        // const reCaptchaResponse = await fetch('/reCaptchaValidation', reCAPTCHMsg) /* send the token to the server to validate it */
-        // console.log(reCaptchaResponse);
-        // if (!reCaptchaResponse.ok) { /* if the recaptcha is not valid, alert the user */
-        //     setMsgModal('ReCAPTCHA verification failed');/* if the response is not ok, alert the user */
-        //     handleShow();
-        //     return;
-        // }
+        const reCaptchaResponse = await fetch('https://final-task-server.vercel.app/reCaptchaValidation', reCAPTCHMsg) /* send the token to the server to validate it */
+        console.log(reCaptchaResponse);
+        if (!reCaptchaResponse.ok) { /* if the recaptcha is not valid, alert the user */
+            setMsgModal('ReCAPTCHA verification failed');/* if the response is not ok, alert the user */
+            handleShow();
+            return;
+        }
 
         /* define the signUp request message */
         const requestMsg = {
@@ -164,7 +164,7 @@ const SignUp = () => {
                                     </div>
                                     <center className='margin-bottom-ReCAPTCHA'><ReCAPTCHA /* display the reCAPTCHA */
                                         sitekey="6LcJBykkAAAAAOxj6YIRBE3aSGS3GCj3gszHMEGN"
-                                        onChange={onChangeRecap}
+                                        /*onChange={onChangeRecap}*/
                                         ref={captchaRef}/>
                                     </center>
                                     <input type="submit" className="btn btn-primary btn-user btn-block" value={'Register Account'}></input> 
