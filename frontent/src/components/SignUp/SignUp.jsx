@@ -163,7 +163,7 @@ const SignUp = () => {
                                         </div>
                                     </div>
                                     <center className='margin-bottom-ReCAPTCHA'><ReCAPTCHA /* display the reCAPTCHA */
-                                        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                                        sitekey="6LcJBykkAAAAAOxj6YIRBE3aSGS3GCj3gszHMEGN"
                                         onChange={onChangeRecap}
                                         ref={captchaRef}/>
                                     </center>
