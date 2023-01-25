@@ -93,32 +93,32 @@ const LogIn = () => {
         /* if the session is not stored */
 
         /* check if the recaptcha is valid */
-        const token = captchaRef.current.getValue();
-        captchaRef.current.reset();
+        // const token = captchaRef.current.getValue();
+        // captchaRef.current.reset();
 
         /* define the recaptch request message */
-        const reCAPTCHMsg = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(
-                {
-                    title:     'reCAPTCHA',
-                    token:     token
-                })
-        };
+        // const reCAPTCHMsg = {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(
+        //         {
+        //             title:     'reCAPTCHA',
+        //             token:     token
+        //         })
+        // };
         
         console.log("requesting");
 
-        const reCaptchaResponse = await fetch('/reCaptchaValidation', reCAPTCHMsg) /* send the token to the server to validate it */
-        console.log(reCaptchaResponse);
-        if (!reCaptchaResponse.ok) {
-            console.log("hhhhhhhhhhhhhhh",reCaptchaResponse)
-			/* if the recaptcha is not valid, alert the user */
-           setMsgModal('ReCAPTCHA verification failed')
-           handleShow()
+        // const reCaptchaResponse = await fetch('/reCaptchaValidation', reCAPTCHMsg) /* send the token to the server to validate it */
+        // console.log(reCaptchaResponse);
+        // if (!reCaptchaResponse.ok) {
+        //     console.log("hhhhhhhhhhhhhhh",reCaptchaResponse)
+		// 	/* if the recaptcha is not valid, alert the user */
+        //    setMsgModal('ReCAPTCHA verification failed')
+        //    handleShow()
 
-            return;
-        }
+        //     return;
+        // }
 
         /* define the logIn request message */
         const requestMsg = {
