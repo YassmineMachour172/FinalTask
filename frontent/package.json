@@ -1,5 +1,5 @@
 {
-  "proxy": "https://car-service-information-server.vercel.app/",
+  "proxy": "https://final-task-server.vercel.app/",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
