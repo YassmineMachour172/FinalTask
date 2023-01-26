@@ -200,6 +200,7 @@ app.post('/forgotPassword', (req, res) => {
             }
 
             // create transport for the email
+            return new Promise((resolve,reject)=>{
             let transporter = nodemailer.createTransport({
                 service: 'hotmail',
                 auth: {
@@ -214,17 +215,21 @@ app.post('/forgotPassword', (req, res) => {
                 from:'yassmineMoran@hotmail.com',
                 to: req.body.email,
                 subject: 'Reset Password',
-                text: 'Hello,\nEnter the following link to reset password:\nhttp://localhost:3000/#/resetPassword'
+                text: 'Hello,\nEnter the following link to reset password:\nhttps://final-task-client.vercel.app/#/resetPassword'
             };
-
+            let resp=false;
             // send the email
             transporter.sendMail(mailOptions, function(err,info){
                 if(err){
                     console.log(err);
+                    resolve(false);
                     return;
                 }
                 console.log("sent: "+info.response);
-            })
+                resolve(true);
+            });
+        
+   
 
             // define the response message
             const forgotPasswordMsg = {
@@ -240,6 +245,7 @@ app.post('/forgotPassword', (req, res) => {
             res.type('application/json')
             res.send(forgotPasswordMsg) // send the response
         })
+})
 })
 
 /* POST request to reset password */
